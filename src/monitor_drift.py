@@ -43,8 +43,8 @@ def run_drift_report(reference_df, production_df):
     return report.run(reference_data=reference_df, current_data=production_df)
 
 def summarize_drift(result):
-    data= result.dict()['metrics']
-    overall_share= data[0]['value']['share']
+    data = result.dict()["metrics"]
+    overall_share = data[0]["value"]["share"]
 
     drifted_columns = []
     for metric in data[1:]:
@@ -52,10 +52,16 @@ def summarize_drift(result):
             continue
         column = metric["config"]["column"]
         threshold = metric["config"]["threshold"]
-        p_value = metric["value"]
-        if p_value < threshold:
+        method = metric["config"]["method"]
+        value = metric["value"]
+
+        is_p_value_method = "p_value" in method
+        drifted = value < threshold if is_p_value_method else value > threshold
+
+        if drifted:
             drifted_columns.append(column)
     return overall_share, drifted_columns
+
 
 def main(threshold):
     reference_df= load_reference()
