@@ -1,0 +1,20 @@
+# MLflow
+mlruns/
+mlflow.db
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Pytest
+.pytest_cache/
+
+# Env / Secrets
+.env
+
+# Notebooks
+.ipynb_checkpoints/
+
+# OS 
+.DS_Store
