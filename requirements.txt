@@ -1,0 +1,9 @@
+pandas==3.0.5
+numpy==2.5.3
+scikit-learn==1.9.1
+mlflow==3.16.1
+skops==0.15.0
+evidently==0.7.23
+pyyaml==6.0.3
+pytest==9.1.1
+dvc==3.67.1
