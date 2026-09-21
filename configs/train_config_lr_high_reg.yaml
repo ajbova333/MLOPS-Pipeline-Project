@@ -1,0 +1,42 @@
+data:
+  raw_path: "data/raw/heart.csv"
+  dvc_pointer_path: "data/raw/heart.csv.dvc"
+  target_column: "target"
+  numeric_columns:
+    - "age"
+    - "trestbps"
+    - "chol"
+    - "thalach"
+    - "oldpeak"
+  categorical_columns:
+    - "sex"
+    - "cp"
+    - "fbs"
+    - "restecg"
+    - "exang"
+    - "slope"
+    - "ca"
+    - "thal"
+  columns_to_encode:
+    - "cp"
+    - "restecg"
+    - "slope"
+    - "thal"
+    - "ca"
+  test_size: 0.2
+  random_state: 42
+
+model:
+  type: logistic_regression
+  params:
+    max_iter: 5000
+    C: 0.1
+
+mlflow:
+  experiment_name: "heart_disease_prediction"
+
+thresholds:
+  accuracy: 0.75
+  f1_score: 0.70
+
+
