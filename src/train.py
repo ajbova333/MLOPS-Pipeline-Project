@@ -75,7 +75,8 @@ def main(config_path):
         mlflow.log_param('test_size', data_cfg["test_size"])
         mlflow.log_param('random_state', data_cfg["random_state"])
         mlflow.log_metrics(metrics)
-        mlflow.sklearn.log_model(model, "model")
+        mlflow.sklearn.log_model(model, "model", skops_trusted_types=["sklearn.tree._tree.Tree"])
+
 
         print('Metrics:', metrics)
 

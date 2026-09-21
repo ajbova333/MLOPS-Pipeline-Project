@@ -1,4 +1,4 @@
 [core]
     remote = localremote
 ['remote "localremote"']
-    url = C:\dvc-storage\heart-prediction
+    url = ../dvc-storage
